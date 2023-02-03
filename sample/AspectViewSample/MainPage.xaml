@@ -4,7 +4,10 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:maui="clr-namespace:epj.AspectView.Maui;assembly=epj.AspectView.Maui"
   xmlns:views="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-  x:Class="AspectViewSample.MainPage">
+  Shell.NavBarIsVisible="False"
+  BackgroundColor="DimGray"
+  x:Class="AspectViewSample.MainPage"
+  x:Name="VideoPage">
 
   <ContentPage.Resources>
     <ResourceDictionary>
@@ -38,12 +41,18 @@
   </ContentPage.Resources>
 
   <Grid>
+
     <maui:AspectView
       AspectRatio="0.5625"
       Style="{StaticResource AspectStyle}">
 
       <views:MediaElement
-        Source=""/>
+        ShouldAutoPlay="True"
+        ShouldLoopPlayback="True"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill"
+        Aspect="Center"
+        Source="{Binding VideoSource, Source={x:Reference VideoPage}}"/>
 
     </maui:AspectView>
 
